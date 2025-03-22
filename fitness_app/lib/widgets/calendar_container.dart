@@ -1,3 +1,4 @@
+import 'package:fitness_app/widgets/small_container.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
@@ -6,11 +7,11 @@ class CalendarContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    List<DateTime> dates = List.generate(5, (index) {
+    List<DateTime> dates = List.generate(7, (index) {
       return DateTime.now().add(Duration(days: index));
     });
     return SizedBox(
-      height: 300,
+      height: 280,
       child: Card(
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
         margin: EdgeInsets.all(15),
@@ -65,77 +66,28 @@ class CalendarContainer extends StatelessWidget {
                     );
                   }),
             ),
+            SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Row(
+                children: [
+                  SmallContainer(
+                      maincolor: Colors.yellow.shade100,
+                      circlecolor: Color(0xffFFEC8B),
+                      assetimagepath: 'Assets/fitness.png'),
+                  SmallContainer(
+                      maincolor: Colors.purple.shade50,
+                      circlecolor: Color(0xffDAB9F2),
+                      assetimagepath: 'Assets/clock.png'),
+                  SmallContainer(
+                      maincolor: Colors.blue.shade50,
+                      circlecolor: Color(0xffB5E1FA),
+                      assetimagepath: 'Assets/clock.png'),
+                ],
+              ),
+            )
           ],
         ),
       ),
     );
   }
 }
-// import 'package:flutter/material.dart';
-// import 'package:intl/intl.dart';
-
-// class CalendarContainer extends StatelessWidget {
-//   const CalendarContainer({super.key});
-
-//   @override
-//   Widget build(BuildContext context) {
-//     List<DateTime> dates = List.generate(7, (index) {
-//       return DateTime.now().add(Duration(days: index));
-//     });
-
-//     return Card(
-//       color: Colors.red,
-//       margin: EdgeInsets.all(15),
-//       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
-//       child: Column(
-//         mainAxisSize: MainAxisSize.min, // Prevent unnecessary expansion
-//         children: [
-//           // 🔹 Calendar List (Fixed Height)
-//           SizedBox(
-//             height: 70, // Only this part will take 70 height
-//             child: ListView.builder(
-//               itemCount: dates.length,
-//               scrollDirection: Axis.horizontal,
-//               itemBuilder: (context, index) {
-//                 DateTime date = dates[index];
-//                 return Padding(
-//                   padding: const EdgeInsets.symmetric(horizontal: 5),
-//                   child: Container(
-//                     width: 50,
-//                     decoration: BoxDecoration(
-//                       color: Colors.blue,
-//                       borderRadius: BorderRadius.circular(10),
-//                     ),
-//                     child: Column(
-//                       mainAxisAlignment: MainAxisAlignment.center,
-//                       children: [
-//                         Text(
-//                           DateFormat.E().format(date),
-//                           style: TextStyle(
-//                               color: Colors.white, fontWeight: FontWeight.bold),
-//                         ),
-//                         Text(
-//                           DateFormat.d().format(date),
-//                           style: TextStyle(color: Colors.white),
-//                         ),
-//                       ],
-//                     ),
-//                   ),
-//                 );
-//               },
-//             ),
-//           ),
-
-//           // 🔹 Add More Content Below (This part will not affect calendar height)
-//           Padding(
-//             padding: EdgeInsets.all(10),
-//             child: Text(
-//               "More content here...",
-//               style: TextStyle(color: Colors.white, fontSize: 16),
-//             ),
-//           ),
-//         ],
-//       ),
-//     );
-//   }
-// }
