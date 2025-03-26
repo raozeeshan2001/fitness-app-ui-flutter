@@ -17,6 +17,8 @@ class SmallContainer extends StatefulWidget {
 class _SmallContainerState extends State<SmallContainer> {
   @override
   Widget build(BuildContext context) {
+    double screenWidth = MediaQuery.of(context).size.width;
+    double screenHeight = MediaQuery.of(context).size.height;
     return Container(
       height: 110,
       margin: EdgeInsets.symmetric(horizontal: 8),

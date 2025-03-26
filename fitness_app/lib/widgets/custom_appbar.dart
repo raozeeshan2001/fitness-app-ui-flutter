@@ -6,6 +6,8 @@ class CustomAppbar extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Widget build(BuildContext context) {
+    double screenWidth = MediaQuery.of(context).size.width;
+    double screenHeight = MediaQuery.of(context).size.height;
     return Container(
       decoration: BoxDecoration(
           gradient: LinearGradient(
@@ -49,8 +51,8 @@ class CustomAppbar extends StatelessWidget implements PreferredSizeWidget {
             padding: EdgeInsets.symmetric(horizontal: 15),
             child: Row(children: [
               Container(
-                height: 40,
-                width: 225,
+                height: screenHeight * 0.07, //40,
+                width: screenWidth * 0.7, //225,
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(20),
                     color: Colors.white),
